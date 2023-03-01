@@ -17,7 +17,7 @@ const Home: NextPage<HomeProps> = ({ challenges }) => {
         <title>Challenges | upskill.code</title>
       </Head>
       <Header/>
-      <Challenges challenges={challenges} />
+      <Challenges title="All Challenges" challenges={challenges} />
     </HomePageContainer>
   );
 };

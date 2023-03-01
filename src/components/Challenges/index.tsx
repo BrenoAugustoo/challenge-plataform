@@ -4,12 +4,13 @@ import { ChallengesContainer } from "./styles";
 
 interface ChallengeProps {
   challenges: IChallenge[]
+  title: string
 }
 
-export function Challenges ({ challenges }: ChallengeProps) {
+export function Challenges ({ title, challenges }: ChallengeProps) {
   return (
     <ChallengesContainer>
-      <h2>All Challenges</h2>
+      <h2>{title}</h2>
 
       <div>
         {challenges.map((challenge) => (
