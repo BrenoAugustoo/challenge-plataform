@@ -6,12 +6,14 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import rehypeRaw from 'rehype-raw'
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { useRouter } from "next/router";
+import { IChallenge } from "interfaces/challenges.interface";
 
 interface ChallengeSideBarProps {
+  challengeTitle: string
   instructions: string
 }
 
-export function ChallengeSideBar({ instructions }:ChallengeSideBarProps ) {
+export function ChallengeSideBar({challengeTitle, instructions }:ChallengeSideBarProps ) {
   const [isOpen, setIsOpen] = useState(true)
 
   const router = useRouter()
@@ -34,7 +36,7 @@ export function ChallengeSideBar({ instructions }:ChallengeSideBarProps ) {
             <button onClick={backToHome} >back to home</button>
             <button onClick={() => setIsOpen(false)}>hide panel</button>
           </div>
-          <h1>To Do List</h1>
+          <h1>{challengeTitle}</h1>
         </header>
 
         <InstructionsContainer

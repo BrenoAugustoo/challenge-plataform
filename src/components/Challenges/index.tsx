@@ -1,18 +1,20 @@
 import { ChallengeCard } from "components/ChallengeCard";
+import { IChallenge } from "interfaces/challenges.interface";
 import { ChallengesContainer } from "./styles";
 
-export function Challenges () {
+interface ChallengeProps {
+  challenges: IChallenge[]
+}
+
+export function Challenges ({ challenges }: ChallengeProps) {
   return (
     <ChallengesContainer>
       <h2>All Challenges</h2>
 
       <div>
-        <ChallengeCard/>
-        <ChallengeCard/>
-        <ChallengeCard/>
-        <ChallengeCard/>
-        <ChallengeCard/>
-        <ChallengeCard/>
+        {challenges.map((challenge) => (
+          <ChallengeCard key={challenge.id} challenge={challenge} />
+        ))}
       </div>
     </ChallengesContainer>
   )
